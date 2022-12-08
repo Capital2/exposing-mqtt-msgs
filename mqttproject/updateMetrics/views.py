@@ -15,12 +15,12 @@ def section(request, num):
     if (num == 0):
         # temp
         with open("updateMetrics/temperature.txt", 'r') as f:
-            ret = os.read(f, 1024).decode()
+            ret = f.read()
             return HttpResponse(ret)
     elif (num == 1):
         # hum
         with open("updateMetrics/humidity.txt", 'r') as f:
-            ret = os.read(f, 1024).decode()
+            ret = f.read()
             return HttpResponse(ret)
     else:
         raise Http404("No such topic")

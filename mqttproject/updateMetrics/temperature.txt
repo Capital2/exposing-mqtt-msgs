@@ -1,1 +1,1 @@
-testtemp
+temperature: 555 deg

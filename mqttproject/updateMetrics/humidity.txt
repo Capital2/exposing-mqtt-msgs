@@ -1,1 +1,1 @@
-testhum
+humidity: 45%
