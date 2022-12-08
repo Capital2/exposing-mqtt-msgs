@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>What's the weather like</title>
+        <script>
+
+            //  This function communicates with django (backend)
+            
+            function showSection(section) {   
+                fetch(`/sections/${section}`)
+                .then(response => response.text())
+                .then(text => {
+                    console.log(text);
+                    document.querySelector(section == 0 ? '#temperature' : '#humidity').innerHTML = text;
+                });
+
+            }
+            var intervalId = window.setInterval(function(){
+                showSection(0); // temp
+                showSection(1); // hum
+            }, 500);
+
+
+            // document.addEventListener("DOMContentLoaded", function() {
+            //     document.querySelectorAll('button').forEach(button => {
+            //         button.onclick = function() {
+            //             showSection(this.dataset.section)
+            //         }
+            //     })
+            // });
+
+
+        </script>
+    </head>
+    <body>
+        <h1>Stats from Wokwi!</h1>
+        <!-- <button data-section="1">Section 1</button>
+        <button data-section="2">Section 2</button>
+        <button data-section="3">Section 3</button> -->
+
+        <!-- Contents loaded from server is inserted here by javascript -->
+        <div id="temperature">
+
+        </div>
+        <br>
+        <div id="humidity">
+
+        </div>
+
+    
+    </body>
+</html>
