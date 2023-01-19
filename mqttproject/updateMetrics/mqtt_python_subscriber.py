@@ -48,7 +48,7 @@ def subscribe(client: mqtt_client, topic):
 def update_file(payload: str, topic: str):
     subtop = topic.split('/')[-1]
     with open(f"{subtop}.txt", "w") as f:
-        f.write(f"{subtop}: {payload}")
+        f.write(f"{payload}")
     pass
 
 def run():

@@ -1,1 +1,1 @@
-temperature: 555 deg
+5 deg
